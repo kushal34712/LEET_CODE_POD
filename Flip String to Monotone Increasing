@@ -1,0 +1,31 @@
+17 JANUARY 2023
+926 || Flip String to Monotone Increasing || Leetcode Daily Challenge
+
+LINK
+https://leetcode.com/problems/flip-string-to-monotone-increasing/
+
+REMOVE ALL THE CODE (1 TO 6)
+
+COPY CODE FORM 11TH LINE 
+
+class Solution {
+public:
+    int minFlipsMonoIncr(string s) {
+
+        int flips = 0, counter = 0;
+        for (auto c : s) {
+            if (c == '1') 
+                counter++;
+            else 
+                flips++;
+            flips = min(flips, counter);
+        }
+        return flips;
+    }
+};
+
+
+
+
+
+BY KUSHAL347
