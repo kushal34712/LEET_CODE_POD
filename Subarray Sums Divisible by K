@@ -1,0 +1,35 @@
+19 JANUARY 2023
+974 || Subarray Sums Divisible by K || Leetcode Daily Challenge
+
+LINK
+https://leetcode.com/problems/subarray-sums-divisible-by-k/description/
+
+REMOVE ALL THE CODE (1 TO 6)
+
+COPY CODE FORM 14TH LINE
+
+
+
+
+class Solution {
+public:
+    int subarraysDivByK(vector<int>& A, int K) {
+        unordered_map<int, int> mp;
+        int sum = 0, ans = 0;
+        mp[0] = 1;
+        for(int n: A){
+            sum = ((sum + n) % K + K) % K;
+            mp[sum] ++;
+            if(mp[sum] > 1){
+                ans += mp[sum] - 1;
+            }
+        }
+        return ans;
+    }
+};
+
+
+
+
+
+BY KUSHL347
