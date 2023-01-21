@@ -1,0 +1,43 @@
+93 || Restore IP Addresses || Leetcode Daily Challenge
+
+LINK
+https://leetcode.com/problems/non-decreasing-subsequences/
+
+REMOVE ALL THE CODE (1 TO 6)
+
+COPY CODE FORM 14TH LINE
+
+
+
+
+
+class Solution {
+public:
+    vector<string> restoreIpAddresses(string s) {
+    vector<string> res;
+    int n = s.size();
+    string ip;
+    for (int i = 1; i < 4; i++) {
+        for (int j = i + 1; j < i + 4; j++) {
+            for (int k = j + 1; k < j + 4; k++) {
+                if (i < n && j < n && k < n && isValid(s.substr(0, i)) && isValid(s.substr(i, j - i)) && isValid(s.substr(j, k - j)) && isValid(s.substr(k, n - k))) {
+                    ip = s.substr(0, i) + "." + s.substr(i, j - i) + "." + s.substr(j, k - j) + "." + s.substr(k, n - k);
+                    res.push_back(ip);
+                }
+            }
+        }
+    }
+    return res;
+}
+
+bool isValid(string s) {
+    if (s.size() > 3 || s.size() == 0 || (s[0] == '0' && s.size() > 1) || stoi(s) > 255) return false;
+    return true;
+}
+};
+
+
+
+
+
+BY KUSHAL347
