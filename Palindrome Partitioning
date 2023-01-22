@@ -1,0 +1,50 @@
+22 JANUARY 2023
+
+131 || Palindrome Partitioning || Leetcode Daily Challenge
+
+LINK
+https://leetcode.com/problems/palindrome-partitioning/
+
+REMOVE ALL THE CODE (1 TO 6)
+
+COPY CODE FORM 15TH LINE
+
+
+
+
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        vector<vector<string>> res;
+        vector<string> partition;
+        backtrack(s, partition, 0, res);
+        return res;
+    }
+    void backtrack(string s, vector<string>& partition, int start, vector<vector<string>>& res) {
+        if (start == s.size()) {
+            res.push_back(partition);
+            return;
+        }
+        for (int i = start; i < s.size(); i++) {
+            if (isPalindrome(s, start, i)) {
+                partition.push_back(s.substr(start, i - start + 1));
+                backtrack(s, partition, i + 1, res);
+                partition.pop_back();
+            }
+        }
+    }
+    bool isPalindrome(string s, int start, int end) {
+        while (start < end) {
+            if (s[start] != s[end]) return false;
+            start++;
+            end--;
+        }
+        return true;
+    }
+};
+
+
+
+
+
+BY KUSHAL347
