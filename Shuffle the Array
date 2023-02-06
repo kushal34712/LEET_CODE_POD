@@ -1,0 +1,32 @@
+06 FEBUARY 2023
+
+1470 || Shuffle the Array || Leetcode Daily Challenge
+
+LINK OF TADAY'S PROBLEM OF THE DAY 
+
+https://leetcode.com/problems/shuffle-the-array/
+
+REMOVE ALL THE CODE (1 TO 6)
+
+COPY CODE FORM 16TH LINE
+
+
+
+
+class Solution {
+public:
+    vector<int> shuffle(vector<int>& nums, int n) {
+        vector<int>ans(2*n);
+        for(int i=0;i<n;i++){
+            ans[2*i]=nums[i];
+            ans[2*i+1]=nums[n+i];
+        }
+        return ans;
+    }
+};
+
+
+
+
+
+BY KUSHAL347
