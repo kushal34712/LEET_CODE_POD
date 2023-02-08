@@ -1,0 +1,46 @@
+08 FEBUARY 2023
+
+45 || Jump Game II || Leetcode Daily Challenge
+
+LINK OF TADAY'S PROBLEM OF THE DAY 
+
+https://leetcode.com/problems/jump-game-ii/
+
+REMOVE ALL THE CODE (1 TO 6)
+
+COPY CODE FORM 16TH LINE
+
+
+
+
+class Solution {
+public:
+
+    int f(int i,vector<int>&nums,vector<int>&dp){
+        int n = nums.size();
+        if(dp[i] != -1)return dp[i];
+        int temp = INT_MAX;
+        int lim1 = min(nums[i] + i + 1,n);
+        cout << lim1 << endl;
+        for(int j = i+1;j < lim1;j++){
+            if(f(j,nums,dp) != INT_MAX){
+                temp = min(temp,1 + f(j,nums,dp));
+            }
+        }
+       return dp[i] = temp;
+    }
+
+    int jump(vector<int>& nums) {
+        int n = nums.size();
+        vector<int>dp(n,-1);
+        dp[n-1] = 0;
+        f(0,nums,dp);
+        return dp[0];
+    }
+};
+
+
+
+
+
+BY KUSHAL347
